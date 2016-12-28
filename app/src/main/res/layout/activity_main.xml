@@ -22,18 +22,7 @@
         android:layout_alignParentStart="true"/>
 
     <TextView
-        android:text="Hiker's Watch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:id="@+id/textView"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="30sp"/>
-
-    <TextView
-        android:text="Latitude : 0.0"
+        android:text="Latitude:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lalitudeTextView"
@@ -41,15 +30,62 @@
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="28dp"/>
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black"/>
 
     <TextView
-        android:text="Longtitude : 0.0"
+        android:text="Longtitude:"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/longitudeTextView"
         android:textSize="24sp"
         android:layout_below="@+id/lalitudeTextView"
-        android:layout_alignStart="@+id/lalitudeTextView"/>
+        android:layout_alignStart="@+id/lalitudeTextView"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black"/>
+    <TextView
+        android:text="Accuracy:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/accuracyTextView"
+        android:textSize="24sp"
+        android:layout_below="@+id/longitudeTextView"
+        android:layout_alignStart="@+id/longitudeTextView"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:text="Altitude:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/altitudeTextView"
+        android:textSize="24sp"
+        android:layout_below="@+id/accuracyTextView"
+        android:layout_alignStart="@+id/accuracyTextView"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:text="Address :\n Jalan Street \n Bandar Town"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addressTextView"
+        android:textSize="24sp"
+        android:layout_below="@+id/altitudeTextView"
+        android:layout_alignStart="@+id/altitudeTextView"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:text="Hiker's Watch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:id="@+id/textView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/black"/>
 
 </RelativeLayout>
