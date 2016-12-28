@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     LocationManager mLocationManager;
     LocationListener mLocationListener;
 
+    public void updateLocationInfo(Location location) {
+        Log.i("LocationInfo",location.toString());
+    }
 
 
     @Override
@@ -30,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         mLocationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-                Log.i("LocationInfo",location.toString());
+               updateLocationInfo(location);
             }
 
             @Override
@@ -56,6 +59,13 @@ public class MainActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.ACCESS_FINE_LOCATION}, 1);
             } else {
                 mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0, mLocationListener);
+
+                Location location = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+                if (location != null) {
+                    updateLocationInfo(location);
+                }
+
 
 
             }
