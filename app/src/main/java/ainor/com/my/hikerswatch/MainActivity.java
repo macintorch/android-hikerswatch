@@ -3,6 +3,8 @@ package ainor.com.my.hikerswatch;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -16,6 +18,10 @@ import android.util.Log;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,6 +59,19 @@ public class MainActivity extends AppCompatActivity {
         lngTextView.setText("Longitude: " + location.getLongitude());
         accuracyTextView.setText("Accuracy: " + location.getAccuracy());
         altTextView.setText("Altitude: " + location.getAltitude());
+
+        Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
+
+        try {
+            List<Address> addressList = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+
+            if (addressList != null && addressList.size() >0 ) {
+                Log.i("PlaceInfo", addressList.get(0).toString());
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
