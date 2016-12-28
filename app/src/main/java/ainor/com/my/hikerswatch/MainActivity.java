@@ -60,14 +60,33 @@ public class MainActivity extends AppCompatActivity {
         accuracyTextView.setText("Accuracy: " + location.getAccuracy());
         altTextView.setText("Altitude: " + location.getAltitude());
 
+
         Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
 
         try {
+
+            String address = "Could not find address";
+
             List<Address> addressList = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
 
             if (addressList != null && addressList.size() >0 ) {
                 Log.i("PlaceInfo", addressList.get(0).toString());
+
+                address = "Address: ";
+
+                if (addressList.get(0).getSubThoroughfare() != null) {
+                    address += addressList.get(0).getSubThoroughfare() + " ";
+                }
+
+                if (addressList.get(0).getThoroughfare() != null) {
+                    address += addressList.get(0).getThoroughfare() + "\n";
+                }
+
+                if (addressList.get(0).getLocality() != null) {
+                    address += addressList.get(0).getLocality() + "\n";
+                }
             }
+            addressTextView.setText(address);
 
         } catch (IOException e) {
             e.printStackTrace();
