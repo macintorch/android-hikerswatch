@@ -13,6 +13,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +42,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateLocationInfo(Location location) {
         Log.i("LocationInfo",location.toString());
+
+        TextView latTextView = (TextView) findViewById(R.id.lalitudeTextView);
+        TextView lngTextView = (TextView) findViewById(R.id.longitudeTextView);
+        TextView accuracyTextView = (TextView) findViewById(R.id.accuracyTextView);
+        TextView altTextView = (TextView) findViewById(R.id.altitudeTextView);
+        TextView addressTextView = (TextView) findViewById(R.id.addressTextView);
+
+        latTextView.setText("Latitude: " + location.getLatitude());
+        lngTextView.setText("Longitude: " + location.getLongitude());
+        accuracyTextView.setText("Accuracy: " + location.getAccuracy());
+        altTextView.setText("Altitude: " + location.getAltitude());
     }
 
 
